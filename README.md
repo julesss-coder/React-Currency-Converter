@@ -4,4 +4,4 @@ React web app that converts USD to EUR and vice versa, based on a fixed (past) e
 
 This is a practice project I did for my full-stack web development bootcamp at Altcademy (www.altcademy.com).
 
-Find it here: https://github.com/julesss-coder/react-currency-converter
+Find it here: https://julesss-coder.github.io/React-Currency-Converter/

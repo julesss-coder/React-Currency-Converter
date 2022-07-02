@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color:whitesmoke;
+}
+
+#root {
+  background-color: antiquewhite;
+  height: 50vh;
+  padding: 20px;
+  margin: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+input {
+  margin: 10px;
+}
+
+/* On small displays: the two input elements and the = sign should be display: block */
+
+@media (max-width: 510px) {
+
+}

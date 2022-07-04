@@ -1,11 +1,13 @@
-/* PROBLEMS
-    If initially, a floating point number is displayed in EUR field, the up and down arrows change it by 1 - is this what we want?
+// Extracting the input component, for practice
+function AmountInput(props) {
+  let {handleInput, value, name} = props;
 
-    Sometimes, numbers keep increasing/reducing by themselves, but I cannot replicate the bug. Does it have to do with the fact that I passed in a arrow function to onChange handler? Or that negative numbers are acceptable?
+  return (
+    // Display value of input field rounded to three decimal points, except when value is ''
+    <input type="number" name={name} value={value !== '' ? parseFloat(value.toFixed(3)) : ''} onChange={handleInput}/>
+  )
+}
 
-    Rounding to three digit places does not work when 1) I delete input and 2) I use . instead of , in floating point numbers.
-
-*/
 
 class CurrencyConverter extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class CurrencyConverter extends React.Component {
     this.convertEurosToDollars = this.convertEurosToDollars.bind(this);
     this.convertDollarsToEuros = this.convertDollarsToEuros.bind(this);
   };
+
 
   handleEuroInput(event) {
     let euros = event.target.value;
@@ -39,7 +42,6 @@ class CurrencyConverter extends React.Component {
       });
     }
   }
-
 
 
   handleDollarInput(event) {
@@ -61,6 +63,7 @@ class CurrencyConverter extends React.Component {
     }
   }
 
+
   convertEurosToDollars(euros) {
     // if the input is not a number, or a number < 0
     if (euros === '' || isNaN(euros) === true || euros < 0) {
@@ -69,6 +72,7 @@ class CurrencyConverter extends React.Component {
 
     return +euros / 0.89;
   }
+
 
   convertDollarsToEuros(dollars) {
     // if the input is not a number:=, or a number < 0:
@@ -79,6 +83,7 @@ class CurrencyConverter extends React.Component {
     return +dollars * 0.89;
   }
 
+
   render() {
     return (
       <div className="currency-converter">
@@ -87,11 +92,11 @@ class CurrencyConverter extends React.Component {
 
         <form action="">
           <label htmlFor="USD">USD
-            <input type="number" name="dollars" value={this.state.dollars} onChange={(event) => {this.handleDollarInput(event)}}/>
+            <AmountInput name={'dollars'} handleInput={this.handleDollarInput} value={this.state.dollars} />
           </label>
           =
           <label htmlFor="EUR">
-            <input type="number" name="euros" value={this.state.euros} onChange={(event) => {this.handleEuroInput(event)}}/>
+            <AmountInput name={'euros'} handleInput={this.handleEuroInput} value={this.state.euros} />
             EUR
           </label>
         </form>

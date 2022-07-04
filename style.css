@@ -5,11 +5,12 @@ body {
 
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 18px;
-  background-color:whitesmoke;
+  color: #386C5F;
+  background-color: #609C88;
 }
 
 #root {
-  background-color: antiquewhite;
+  background-color: #EAFEF6;
   height: 50vh;
   padding: 20px;
   margin: 40px;
@@ -19,6 +20,7 @@ body {
 
 input {
   margin: 10px;
+  width: 60px;
 }
 
 /* On small displays: the two input elements and the = sign should be display: block */

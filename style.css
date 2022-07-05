@@ -23,8 +23,3 @@ input {
   width: 60px;
 }
 
-/* On small displays: the two input elements and the = sign should be display: block */
-
-@media (max-width: 510px) {
-
-}

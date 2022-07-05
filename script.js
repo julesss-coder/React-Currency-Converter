@@ -2,10 +2,35 @@
 function AmountInput(props) {
   let {handleInput, value, name} = props;
 
+  // Alternative ways of rendering value only if it is not '':
+  // 1) Using if else statement and variables
+  // if (value !== '') {
+  //   value = parseFloat(value.toFixed(3))
+  // } else {
+  //   value = '';
+  // }
+
+
   return (
     // Display value of input field rounded to three decimal points, except when value is ''
     <input type="number" name={name} value={value !== '' ? parseFloat(value.toFixed(3)) : ''} onChange={handleInput}/>
-  )
+    // 2) Using an immediately invoked function expression 
+    // <input type="number" name={name} 
+    //    value={(() => {
+      //   if (value !== '') {
+      //     return parseFloat(value.toFixed(3));
+      //   } else {
+      //     return '';
+      //   }
+      // })()} onChange={handleInput}/>
+
+    // 3) Using inline logical operators
+    //   <input 
+    //     type="number" 
+    //     name={name} 
+    //     value={(value === '' && '') || value !== '' && parseFloat(value.toFixed(3))}
+    //     onChange={handleInput}/>
+   )
 }
 
 
